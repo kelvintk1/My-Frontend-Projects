@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon</title>
+    <style>
+        .input-field{
+            width: 150px;
+            height: 30px
+        }
+        button{
+            height: 38px;
+            width: 90px;
+            background-color: rgba(7, 107, 12, 0.801);
+            color: white;
+            border-color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Amazon Shipping Calculator</h1>
+    <h3>Orders under $40 = +$10 shipping.</h3>
+    <h3>Orders over $40 = FREE shipping.</h3>
+
+    <form>
+        <input type="number" class="field input-field" placeholder="Cost of order" onkeydown="handlePrice(event)">
+        <button onclick="Calculate()">Calculate</button>
+    </form>
+    <p class="amount"></p>
+    <script>
+        function handlePrice(event) {
+            if (event.key === 'Enter') {
+                Calculate()
+        }
+    }
+        function Calculate(){
+            const priceInput = document.querySelector('.field');
+            let price = Number(priceInput.value);
+        
+            if (price < 40 ){
+                price = price + 10
+            }
+            document.querySelector('.amount')
+            .innerHTML = `$${price}`;
+        }
+    </script>
+</body>
+</html>

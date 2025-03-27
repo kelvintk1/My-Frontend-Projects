@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battery Animation</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background: black;
+        }
+        .battery {
+            width: 150px;
+            height: 80px;
+            border: 3px solid whitesmoke;
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+        .battery::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: -10px;
+            transform: translateY(-70%);
+            width: 7px;
+            height: 25px;
+            background-color: whitesmoke;
+            border-radius: 0 3px 3px 0;
+        }
+        .battery-level {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            background: green;
+            transform-origin: left bottom;
+            animation: charge 5s linear infinite;
+        }
+        @keyframes charge {
+            0% {
+                transform: scaleX(0);
+                background: red;
+            }
+            25% {
+                background: orange;
+            }
+            50% {
+                background: yellow;
+            }
+            75% {
+                background: greenyellow;
+            }
+            100% {
+                transform: scaleX(1);
+                background: green;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="battery">
+        <div class="battery-level"></div>
+    </div>
+</body>
+</html>
