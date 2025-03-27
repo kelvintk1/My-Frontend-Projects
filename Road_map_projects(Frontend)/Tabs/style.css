@@ -1,0 +1,55 @@
+.page{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+    height: 60px;
+    width: 700px;
+    background-color: aquamarine;
+}
+.tab_1,
+.tab_2,
+.tab_3,
+.tab_4{
+    color: white;
+    background-color: black;
+    font-size: large;
+    font-weight: 800;
+    width: 100px;
+    height: 35px;
+    padding-left: 20px;
+    padding-top: 10px;
+    margin-top: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.tab_1:hover,
+.tab_2:hover,
+.tab_3:hover,
+.tab_4:hover{
+    /* box-sizing:border-box; */
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.301);
+}
+.tab_1:active,
+.tab_2:active,
+.tab_3:active,
+.tab_4:active{
+    opacity: 0.5;
+}
+.tabsContent{
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+h2{
+    margin-left: 180px;
+    font-size: xx-large;
+}
+
