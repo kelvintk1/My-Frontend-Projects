@@ -1,0 +1,63 @@
+body{
+    display: flex;
+    justify-content: center;
+}
+main{
+    display: flex;  
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    border-style: solid;
+    width: 700px;
+    box-shadow: 5px 5px 5px 5px black;
+    border-radius: 20px;
+}
+div{
+    display: grid;
+    grid-template-columns: 230px 170px 100px;
+    font-weight: bold;
+    column-gap: 10px;
+    row-gap: 10px;
+    margin: 10px;
+    align-items: stretch;
+}
+.name{
+    font-size: large;
+    padding: 10px;
+    width: 210px;
+}
+.todo_date{
+    font-size: large;
+    padding: 10px; 
+    width: 150px;
+
+}
+.add_button{
+    background-color: green;
+    color: white;
+    padding: 0px;
+    width: 100px;
+    height: 45px;
+    font-weight: bold;
+    font-size: large;
+    cursor:pointer;
+    border: none;
+    border-radius: 5px;
+}
+button.deleteButton{
+    background-color: red;
+    padding: 10px;
+    width: 80px;
+    height: 40px;
+    color: white;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+button.deleteButton:hover{
+    box-sizing:content-box;
+    font-size: larger;
+}
+.add_button:hover{
+    box-shadow: 3px 3px 3px 3px rgb(134, 121, 121);
+}
