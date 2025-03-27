@@ -1,0 +1,20 @@
+#name{position: left;}
+
+nav li{float: right;
+    margin-left: 30px;
+}
+nav li:not(:nth-child(1))::after{
+    content: "/";
+    margin-left: 10px;
+}
+nav ul{list-style: none;}
+nav a{text-decoration: none;
+   color: black;
+}
+
+header{clear: both;
+    margin-top: 60px;
+}
+
+
+

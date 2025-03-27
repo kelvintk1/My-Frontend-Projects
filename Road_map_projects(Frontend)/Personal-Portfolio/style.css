@@ -1,0 +1,78 @@
+#name{position: left;
+    border: 1px solid;
+    width: 70px;
+    height: 80px;
+    border-style: outset;
+    padding: 10px;
+    font-size: x-large;
+    text-align: center;
+    background-color: red;
+    color: white;
+
+    /* transform: skew(5deg, 5deg); */
+    animation: 3s linear 0s infinite running  myScale, 5s linear 0s infinite running myColor;
+}
+
+@keyframes myRotate{
+    from{margin-left: 100%;}
+    to{margin-left: 0%;}
+}
+
+@keyframes myRotate{
+    /* 100%{transform: rotateX(360deg);} */
+    100%{transform: rotateY(360deg);}
+    /* 100%{transform: rotateZ(360deg);} */
+}
+
+@keyframes myOpacity{
+    50%{opacity: 0;}
+}
+@keyframes myScale{
+    50%{transform: scale(0.5, 0.5);}
+}
+@keyframes myColor{
+    20%{background-color: gold;}
+    40%{background-color: green;}
+    60%{background-color: blue;}
+    80%{background-color: violet;}
+    100%{background-color: black;}
+}
+nav li{float: right;
+    margin-left: 30px;
+}
+nav li:not(:nth-child(1))::after{
+    content: "/";
+    margin-left: 10px;
+}
+a{text-decoration: none;}
+nav ul{list-style: none;}
+nav a{text-decoration: none;
+   color: black;
+}
+
+fieldset{clear: both; margin-top: 1000px;}
+
+header{clear: both;
+    margin-top: 60px;
+    text-align: center;
+}
+
+.work{
+    float: left;
+    margin-left: 50px;
+    margin-top: 100px;
+}
+.work:hover{
+    border-style: inset;
+}
+
+aside{clear: both;}
+
+.teacher{float: left; border-style: outset; margin-left: 90px; border-radius: 10px; padding: 10px;}
+.teacher:hover{border-color:  blue;}
+
+footer{clear: both;
+text-align: center;
+margin-top: 200px;}
+
+

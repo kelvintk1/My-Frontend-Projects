@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessible Form UI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="form-container">
+        <form>
+            <span>
+                <label>Full Name:</label><br>
+                <input type="text" class="fill_in" placeholder="What should we call you?">
+            </span>
+            <span>
+                <label>Email:</label><br>
+                <input type="email" class="fill_in" value="john@doe.com">
+            </span>
+            <span>
+                <label>Enter Password:</label><br>
+                <input type="password" class="fill_in" placeholder="xxxxxxxx">
+            </span>
+            <span>
+                <label>Confirm Password:</label><br>
+                <input type="password" class="fill_in" placeholder="xxxxxxxx">
+            </span>
+            <div class="button_field">
+                <button>Update Profile</button>
+            </div>
+        </form>
+        <div class="progress">
+            <div class="progress-container">
+                <div class="progress-ring"></div>
+                <div class="progress-fill" style="transform: rotate(calc(-90deg + 234deg));"></div> <div class="progress-text">65%</div>
+            </div>
+                <div id="describe">
+                    <p>Profile Completeness</p>
+                </div>
+                <div class="guide">
+                    <p class="cancel"><del>Create Account</del></p>
+                    <p class="cancel"><del>Update Roadmap Progress</del></p>
+                    <p class="cancel"><del>Setup Public Profile</del></p>
+                    <p>Complete your first project</p>
+                    <p>Invite your friends</p>
+                </div>
+        </div>
+    </div>
+</body>
+</html>
