@@ -60,8 +60,10 @@ document.querySelectorAll(".expand_image").forEach((img) => {
         // Toggle the clicked one
         if (answerSection.style.display === "none") {
             answerSection.style.display = "block";
+            img.style.transform= "rotateX(180deg)";
         } else {
             answerSection.style.display = "none";
+            img.style.transform= "rotateX(0deg)";
         }
     });
 });
