@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do-List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+    <h1>ToDo List</h1> 
+    <form>
+        <div>
+            <!-- Added id and name attributes to the input fields -->
+            <input type="text" placeholder="Todo name" class="name" id="todoName" name="todoName">
+            <input type="date" class="todo_date" id="todoDate" name="todoDate">
+            <button type="button" onclick="Todo_add()" class="add_button">Add</button>
+        </div>
+        <div class="list">
+            <!-- Todo items will be displayed here -->
+        </div>
+    </form>
+    </main>
+    <script src="index.js"></script>
+</body>
+</html>

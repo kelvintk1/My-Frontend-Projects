@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+    <body>
+        <h3>Cart Quantity</h3>
+        <button onclick="show()">Show Quantity</button>
+        <button onclick="add()">Add to Cart</button>
+        <button onclick="double()">+2</button>
+        <button onclick="triple()">+3</button>
+        <button onclick="reset()">Reset Cart</button>
+        <button onclick="backspace()">Delete</button>
+        <script src="index.js">
+            let order = 0;
+            let coffeQuantity = 1;
+            let coffeeAmount = coffeQuantity * 5;
+            let bagelsQuantity = 2;
+            let bagelsAmount = bagelsQuantity * 3;
+            let soupQuantity = 1;
+            let soupAmount = soupQuantity * 9;
+            let cost = coffeeAmount + bagelsAmount + soupAmount;
+            let tax = cost * 0.1;
+            let total = cost + tax;
+            console.log(`Cost: $${cost}\nTax: $${tax}\nTotal Cost: $${total}`)
+        </script>
+    </body>
+</html>

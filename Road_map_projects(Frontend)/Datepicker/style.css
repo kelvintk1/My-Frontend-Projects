@@ -1,0 +1,103 @@
+body{
+    display: flex;
+    justify-content: center;
+}
+.datepicker_container{
+    display: block;
+    border-style: solid;
+}
+.datepicker{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 60%;
+    box-shadow: 2px 2px 2px 4px rgba(0, 0, 0, 0.2);
+    border-style: solid;
+    border-radius: 0.5vw;
+    border-width: 0.1vw;
+}
+.date{
+    width: 15vw;
+    height: 5vh;
+}
+.icon{
+    height: 5vh;
+    margin-left: 5px;
+}
+.icon:hover{
+    cursor: pointer;
+}
+.calendar{
+    max-width: 60%;
+    box-shadow: 2px 2px 2px 4px rgba(0, 0, 0, 0.2);
+    border-style: solid;
+    border-width: 0.1vw;
+
+}
+.month-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: larger;
+}
+.days-header{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    font-weight: bold;
+    flex-wrap: wrap;
+}
+.days{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    margin-bottom: 10px;
+    padding: 10px;
+}
+.days span:hover{
+    background-color: aquamarine;
+    cursor: pointer;
+}
+.days-header span:hover{
+    background-color: black;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .datepicker {
+        grid-template-columns: 1fr 1fr;
+        width: 63vw;
+        
+    }
+
+    .date{
+        width: 30vw;
+    }
+
+    .month-header {
+        font-size: 1rem;
+    }
+
+    .days-header {
+        font-size: 0.9rem;
+    }
+
+    .days span {
+        padding: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .month-header {
+        font-size: 0.9rem;
+    }
+
+    .days-header {
+        font-size: 0.8rem;
+    }
+
+    .days span {
+        padding: 3px;
+    }
+}
