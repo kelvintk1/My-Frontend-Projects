@@ -2,6 +2,7 @@ import data from "./cart_data.js";
 
 // Retrieve orders from localStorage
 const orders = JSON.parse(localStorage.getItem('orders')) || [];
+orders.reverse();
 
 let Order_html = ``;
 
