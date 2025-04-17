@@ -202,7 +202,7 @@ li{
   padding: 25px;
 } */
 
-body{
+/* body{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -256,4 +256,4 @@ body{
 }
 .controls button:active{
   opacity: 0.5;
-}
+} */
