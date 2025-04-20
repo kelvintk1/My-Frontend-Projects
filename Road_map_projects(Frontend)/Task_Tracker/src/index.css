@@ -1,0 +1,83 @@
+body{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.task-tracker{
+  box-shadow: 5px 5px 5px 5px;
+  border-radius: 10px;
+  padding: 10px;
+}
+.task-input{
+  display: flex;
+}
+.task-input input{
+  height: 40px;
+  width: 500px;
+  border-radius: 10px; 
+  font-size: large;
+  padding: 5px;
+}
+#enter-container img{
+  margin-left: -50px;
+  margin-top: 6px;
+  width: 40px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+#enter-container img:hover{
+  box-shadow: 3px 3px 4px 3px;
+}
+#enter-container img:active{
+  opacity: 0.5;
+}
+.filled-checkbox {
+  /* Hide default checkbox */
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #ccc;
+  border-radius: 3px;
+  cursor: pointer;
+  position: relative;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+.filled-checkbox:checked {
+  background-color: rgb(85, 85, 85);
+  border-color: rgb(85, 85, 85);
+}
+.tracker-page{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-right: 30px;
+  border-radius: 5px;
+  padding: 5px;
+}
+.tracker-page:hover{
+  background-color: whitesmoke;
+}
+.task-name{
+  font-size: x-large;
+  margin-left: -20px;
+  width: 350px;
+}
+.del-button{
+  font-size: x-large;
+  font-weight: bold;
+  cursor: pointer;
+  margin-right: 5px;
+}
+.del-button:hover{
+  opacity: 0.5;
+}
+.del-button:active{
+  box-shadow: 3px 3px 3px;
+}
+input[type="checkbox"]:checked + label {
+  text-decoration: line-through;
+  color: gray;
+}
