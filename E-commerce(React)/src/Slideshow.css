@@ -1,0 +1,176 @@
+body{
+  margin: 0;
+  padding: 0;
+}
+.slideshow-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .slide.active {
+    opacity: 1;
+  }
+  
+  .slide-content {
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 80%;
+    margin-top: -40px;
+    animation: content-fall 2s linear;
+    background-color: rgba(0, 0, 0, 0.397); /* Semi-transparent background */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  @keyframes content-fall{
+    from{
+      margin-top: -100px;
+    }
+    to{
+      margin-top: -40px;
+    }
+  }
+
+  .buttons-container{
+    position: absolute; /* Add this! */
+    bottom: 100px;       /* Push it from the bottom */
+    left: 50%;           /* Center it horizontally */
+    transform: translateX(-50%); /* Truly center it */
+    display: flex;
+    flex-direction: row;
+    gap: 70px; /* This adds space between buttons */
+    margin-top: 80px;
+    margin-left: 30px;
+    height: 60px;
+  }
+  .buttons{
+    width: 180px;
+    height: 40px;
+    border: none;
+    border-radius: 20px;
+    font-size: large;
+    font-weight: bold;
+    cursor: pointer;
+    color: whitesmoke;
+    background-image: linear-gradient(to left, blue, red);
+  }
+
+  /* .buttons:hover{
+    background-image: linear-gradient(to right, red, blue);
+    color: white;
+    transform: translateY(-7px);
+    transition: 1s ease;
+    box-shadow: 4px 4px 4px 4px white;
+  } */
+  .buttons:active{
+    opacity: 0.5;
+  }
+  
+  .dots-container {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+  .dots-container:hover {
+  backdrop-filter: blur(15px);
+  background-color: rgba(0, 0, 0, 0.397);
+  /* width: 150px; */
+  height: 25px;
+  padding: 15px;
+  /* margin-left: 210px; */
+  border-radius: 10px;
+}
+  
+  .dot {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .dot.active {
+    background-color: white;
+  }
+
+  .jumping-emoji {
+    font-size: 2rem;
+    animation: jump 1s infinite alternate;
+    display: inline-block;
+  }
+  
+  @keyframes jump {
+    from { transform: translateY(0) rotate(0deg); }
+    to { transform: translateY(-20px) rotate(10deg); }
+  }
+  
+  .spinning-emoji {
+    font-size: 2rem;
+    animation: spin 2s linear infinite;
+    display: inline-block;
+  }
+  
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .buttons {
+    transition: all 0.3s ease;
+}
+
+.buttons:hover {
+  background-image: linear-gradient(to right, red, blue);
+  color: white;
+  transform: translateY(-7px);
+  transition: 1s ease;
+  box-shadow: 6px 6px 6px  white;
+}
+
+.buttons:active {
+    transform: translateY(0);
+}
+
+/* Add focus styles for accessibility */
+.buttons:focus {
+    outline: 2px solid #4a90e2;
+    outline-offset: 2px;
+}
+
+.tagline{
+  margin-top: -10px;
+  margin-bottom: -10px;
+}
+.brand{
+  background: linear-gradient(to bottom right, red 50%, blue 50%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 40px white;
+  margin-top: -20px;
+  margin-bottom: -60px;
+}

@@ -1,0 +1,248 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.R-main{
+    display: flex;
+    justify-content: center;
+    background-image: radial-gradient(blue, red);
+    height: 100vh;
+}
+h1{
+    color: whitesmoke;
+}
+.R-page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 5px 5px 30px 5px;
+    width: 400px;
+    height: fit-content;
+    margin-top: 0px;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.788);
+    backdrop-filter: blur(30px);
+}
+.R-input-fields{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: white;
+    margin-bottom: 10px;
+    padding: 5px;
+    width: 350px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+}
+.R-input-fields:hover{
+    border-style: inset;
+    transition: 0.3s;
+    height: 50px;
+}
+.R-input-fields span{
+    margin: 5px;
+}
+.R-password-view{
+    cursor: pointer;
+}
+.R-input-fields input{
+    border: none;
+    height: 25px;
+    font-size: large;
+    margin: 5px;
+}
+.R-sign-side{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    margin-top: 40px;
+    gap: 10px;
+    /* background-color: red; */
+}
+.R-signup-button{
+    height: 40px;
+    font-size: large;
+    letter-spacing: 2.5px;
+    cursor: pointer;
+    width: 250px;
+    border-radius: 20px;
+    border: none;
+    background-color: white;
+    box-shadow: 0px 8px 13px;
+    outline: none;
+}
+.R-signup-button:hover{
+    background-image: linear-gradient(to right, red, blue);
+    color: white;
+    transform: translateY(-7px);
+    transition: 1s ease;
+}
+.R-or{
+    letter-spacing: 10px;
+    color: white;
+    font-weight: bold;
+}
+.R-buttons-container{
+    display: flex;
+    justify-content: space-between;
+    gap: 90px;
+}
+.R-sign-buttons{
+    width: 70px;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    background-color: white;
+    box-shadow: 0px 8px 13px;
+    border-radius: 20px;
+    font-weight: bold;
+    margin-top: -20px;
+}
+.R-sign-buttons:hover{
+    background-image: linear-gradient(to right, red, blue);
+    color: white;
+    transform: translateY(-8px);
+    transition: 1s ease;
+}
+
+.winking-emoji {
+    display: flex; 
+    flex-direction: row; 
+  }
+  
+  .emoji-face {
+    font-size: 2rem;
+    margin-top: 20px;
+    margin-left: 20px;
+    animation: wink-cycle 4s infinite;
+  }
+  
+  @keyframes wink-cycle {
+    0%, 60% { content: "😎"; opacity: 1; } /* Shades on */
+    70% { content: "😎"; opacity: 0; }    /* Fade out */
+    75% { content: "😉"; opacity: 1; }    /* Wink appears */
+    85% { content: "😉"; opacity: 0; }    /* Fade out */
+    90%, 100% { content: "😎"; opacity: 1; } /* Shades back */
+  }
+  
+  .emoji-face::before {
+    content: "😎";
+    animation: wink-cycle 4s infinite;
+  }
+
+.R-question-container{
+    margin-top: -20px;
+    display: flex;
+    flex-direction: column;
+}
+.R-question{
+    color: whitesmoke;
+}
+.R-yes-button{
+    font-size: x-large;
+    font-weight: bold;
+    padding: 2px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    margin-left: 80px;
+    cursor: pointer;
+    background-color: black;
+    border: none;
+    color: whitesmoke;
+    box-shadow: 1px 1px white;
+}
+.R-yes-button:hover{
+    background-image: linear-gradient(to right, red, blue);
+    color: white;
+    transform: translateY(-8px);
+    transition: 1s ease;
+    box-shadow: 3px 3px 3px 3px white;
+}
+.R-yes-button:hover ~.R-yes{
+        opacity: 1;
+        animation: moveMargin 1.5s;
+    }
+.R-yes{
+    color: white;
+    font-size: large;
+    margin-top: -25px;
+    margin-left: 90px;
+    opacity: 0;
+}
+button:active{
+    opacity: 0.1;
+}
+
+@keyframes moveMargin {
+    from{
+        margin-left: 90px;
+    }
+    to {
+        margin-left: 140px;
+    }}
+
+/* Add these to your existing Register.css */
+.R-password-view-container {
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    position: relative;
+}
+
+.R-eye {
+    position: relative;
+    width: 24px;
+    height: 24px;
+}
+
+.R-eyelid {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: #333;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.R-pupil {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: white;
+    top: 8px;
+    left: 8px;
+    transition: all 0.1s linear;
+}
+
+.R-eyelid.open {
+    height: 12px;
+    top: 6px;
+}
+
+.R-eyelid.closed {
+    height: 24px;
+    top: 0;
+}
+
+/* .R-yes-button-link {
+    text-decoration: none;
+    display: inline-block;
+}
+
+.R-yes-link {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.R-yes-button-link:hover .yes-button,
+.R-yes-link:hover .yes {
+    opacity: 0.8;
+} */

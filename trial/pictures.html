@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Image Gallery</title>
+    <style>
+        body {
+            background-color: #121212;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        
+        h1 {
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #4CAF50;
+        }
+        
+        .gallery-title {
+            margin-top: 20px;
+            font-size: 24px;
+            color: #4CAF50;
+        }
+        
+        .container {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            transform-style: preserve-3d;
+            transform: perspective(1000px) rotateY(0deg);
+            animation: rotate 20s linear infinite;
+        }
+        
+        .container:hover {
+            animation-play-state: paused;
+        }
+        
+        .container span {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            transform-origin: center;
+            transform-style: preserve-3d;
+            transform: rotateY(calc(var(--i) * 45deg)) translateZ(400px);
+            transition: all 0.5s ease;
+        }
+        
+        .container span img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 255, 100, 0.5);
+            transition: all 0.5s ease;
+        }
+        
+        .container span:hover img {
+            transform: scale(1.2);
+            box-shadow: 0 0 25px rgba(0, 255, 100, 0.8);
+        }
+        
+        @keyframes rotate {
+            0% {
+                transform: perspective(1000px) rotateY(0deg);
+            }
+            100% {
+                transform: perspective(1000px) rotateY(360deg);
+            }
+        }
+        
+        .brand {
+            margin-top: 50px;
+            font-size: 18px;
+            color: #4CAF50;
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+<body>
+    <h1>3D Image Gallery</h1>
+    
+    <div class="container">
+        <span style="--i:1"><img src="1.jpg" alt="Image 1"></span>
+        <span style="--i:2"><img src="2.jpg" alt="Image 2"></span>
+        <span style="--i:3"><img src="3.jpg" alt="Image 3"></span>
+        <span style="--i:4"><img src="4.jpg" alt="Image 4"></span>
+        <span style="--i:5"><img src="5.jpg" alt="Image 5"></span>
+        <span style="--i:6"><img src="6.jpg" alt="Image 6"></span>
+        <span style="--i:7"><img src="7.jpg" alt="Image 7"></span>
+        <span style="--i:8"><img src="8.jpg" alt="Image 8"></span>
+    </div>
+    
+    <div class="brand">DeCodeDev</div>
+</body>
+</html>
