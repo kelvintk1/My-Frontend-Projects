@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './slideshow.css';
+import "./Slideshow.css";
 import cover1 from './Gallary/cover_5.png';
 import cover2 from './Gallary/cover_2.png';
 import cover3 from './Gallary/cover_3.png';
