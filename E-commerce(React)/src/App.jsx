@@ -80,7 +80,6 @@ function App() {
   const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
-    <BrowserRouter basename="/E-commerce(React)">
     <Router>
       <div>
         <Routes>
@@ -143,7 +142,6 @@ function App() {
         </Routes>
       </div>
     </Router>
-  </BrowserRouter>
   );
 }
 
