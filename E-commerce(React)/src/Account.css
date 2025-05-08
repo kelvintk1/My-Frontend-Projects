@@ -1,0 +1,151 @@
+.account-main-page{
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    background: linear-gradient(-45deg, red, blue, red, blue);
+    background-size: 400% 400%;
+    animation: gradient 10s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+.account-page{
+    display: flex;
+    flex-direction: column;
+    height: 84.2vh;
+    margin-top: 0px;
+}
+.profile-container_1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.profile-image-container{
+    height: 150px;
+}
+.profile-image{
+    width: 150px;
+    border-radius: 50%;
+    margin-top: 10px;
+    margin-left: 0px;
+}
+.camera-icon-container {
+    display: inline-block;
+    cursor: pointer;
+    margin-top: 20px;
+}
+.camera-icon-container:hover {
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+.camera-icon-container:active {
+    transform: scale(0.9);
+    transition: 0.5s;
+}
+.camera-icon {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+}
+.profile-btns{
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+    margin-top: 10px;
+}
+.profile-image-button{
+    color: white;
+    font-weight: bold;
+    padding: 5px;
+    width: 100px;
+    height: 40px;
+    margin-top: 0px;
+    border: 1px solid white;
+    border-radius: 20px;
+    cursor: pointer;
+    background-image: radial-gradient(blue, red);
+}
+.profile-image-button:hover{
+    box-shadow: 4px 4px 4px white;
+    transform: translateY(-5px);
+    transition: 0.5s;
+}
+.profile-details{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+.profile-name{
+    color: white;
+    font-size: large;
+    font-weight: bold;
+}
+.profile-email{
+    color: white;
+    font-size: large;
+    font-weight: bold;
+    margin-top: -10px;
+}
+.profile-details-input{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.profile-email-input,
+.profile-name-input{
+    width: 200px;
+    height: 30px;
+    margin-top: 10px;
+    border-radius: 5px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+.profile-details-btn{
+    color: white;
+    font-weight: bold;
+    padding: 5px;
+    width: 100px;
+    margin-top: 0px;
+    border: 1px solid white;
+    border-radius: 20px;
+    cursor: pointer;
+    background-image: radial-gradient(blue, red);
+}
+.profile-details-btn:hover{
+    box-shadow: 3px 3px 3px white;
+    transform: translateY(-5px);
+    transition: 0.5s;
+}
+.logout-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+.logout-button{
+    color: white;
+    font-weight: bold;
+    padding: 5px;
+    width: 300px;
+    padding: 5px;
+    font-size: large;
+    margin-top: -32px;
+    border: 1px solid white;
+    border-radius: 20px;
+    cursor: pointer;
+    background-image: radial-gradient(blue, red);
+}
+.logout-button:hover{
+    box-shadow: 4px 4px 4px white;
+    transform: translateY(-5px);
+    transition: 0.5s;
+}

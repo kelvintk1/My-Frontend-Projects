@@ -1,0 +1,178 @@
+/* Allmen_products.css and Allladies_products.css */
+.products-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding: 20px;
+    margin-top: -20px;
+    margin-left: 30px;
+    gap: 20px;
+  }
+  
+  .product-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 450px;
+    width: 250px;
+    margin-left: 20px;
+    margin-top: 12px;
+    border-radius: 7px;
+    background-color: white;
+    box-shadow: 3px 3px 3px 3px black;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  
+  .product-card:hover {
+    box-shadow: none;
+  }
+  
+  @property --angle {
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 0deg;
+  }
+  
+  .product-card:hover::after,
+  .product-card:hover::before {
+    --angle: 0deg;
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: conic-gradient(from var(--angle), red, blue);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    padding: 8px;
+    border-radius: 10px;
+    animation: 2s spin linear infinite;
+  }
+  
+  @keyframes spin {
+    from {
+      --angle: 0deg;
+    }
+    to {
+      --angle: 360deg;
+    }
+  }
+  
+  .product-card:hover::before {
+    filter: blur(1.5rem);
+    opacity: 0.5;
+  }
+  
+  .product-card:hover .product-image {
+    animation: 3s myScale alternate linear infinite;
+  }
+  
+  @keyframes myScale {
+    50% {
+      transform: scale(0.8, 0.8);
+    }
+  }
+  
+  .image-container {
+    height: 200px;
+    width: 210px;
+    margin-left: -5px;
+  }
+  
+  .product-image {
+    margin-left: 0px;
+    margin-top: 20px;
+    height: 210px;
+    width: 210px;
+    transition: transform 0.3s ease;
+    border-radius: 5px;
+  }
+  
+  .products-details {
+    font-size: large;
+    font-weight: bold;
+    width: 210px;
+    height: 120px;
+    text-align: center;
+  }
+  
+  .product-name {
+    height: 40px;
+    width: 210px;
+    margin-top: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  .pro-detailed {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 210px;
+    margin-top: 10px;
+  }
+  
+  .product-price {
+    font-size: 1.2rem;
+  }
+  
+  .product-quantity {
+    margin-top: 0px;
+    width: 50px;
+    border-radius: 5px;
+    text-align: center;
+    border: 1px solid #ccc;
+  }
+  
+  .add-container {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .add-button-container {
+    display: flex;
+    justify-content: center;
+    width: 150px;
+    margin-top: -10px;
+    margin-top: 50px;
+  }
+  
+  .add-button {
+    color: white;
+    width: 150px;
+    height: 35px;
+    font-weight: bold;
+    font-size: large;
+    cursor: pointer;
+    border-radius: 20px;
+    border: none;
+    background-image: linear-gradient(to right, red, blue);
+    transition: all 0.5s ease;
+  }
+  
+  .add-button:hover {
+    transform: translateY(-8px);
+    box-shadow: 5px 5px 5px black;
+  }
+  
+  .add-button.added {
+    background-image: linear-gradient(to right, #00c853, #1b5e20);
+    content: '✓ Added';
+  }
+  
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .products-container {
+      justify-content: center;
+    }
+    
+    .product-card {
+      margin-left: 0;
+    }
+  }
+
+  /* normal again 2*/

@@ -1,8 +1,21 @@
 .L-main{
     display: flex;
     justify-content: center;
-    background-image: radial-gradient(blue, red);
     height: 100vh;
+    background: linear-gradient(-45deg, red, blue, red, blue);
+    background-size: 400% 400%;
+    animation: gradient 8s ease infinite;
+}
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 h1{
     color: whitesmoke;

@@ -57,7 +57,7 @@ function Verify() {
                     </button>
                 </div>
                 <div className='sign-side'>
-                    <Link to="/Home">
+                    <Link to="/home">
                     <button type="submit" className='signup-button'>Verify</button>
                     </Link>
                     <div className='back-to-login'>
