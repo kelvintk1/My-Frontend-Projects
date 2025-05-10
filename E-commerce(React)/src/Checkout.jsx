@@ -54,8 +54,8 @@ function Checkout({ cartItems, updateCartItem, removeFromCart, clearCart, addOrd
                 <div className='checkout-items'>
                     <div className='back-container'>
                         <span className='back-images'>
-                            <Link to='/products/men'><img src='/src/assets/male_icon.png' className='male-icon' alt="Men"/></Link>
-                            <Link to='/products/ladies'><img src='/src/assets/female_icon.png' className='male-icon' alt="Ladies"/></Link>
+                            <Link to='/products/men'><img src='/assets/male_icon.png' className='male-icon' alt="Men"/></Link>
+                            <Link to='/products/ladies'><img src='/assets/female_icon.png' className='male-icon' alt="Ladies"/></Link>
                         </span>
                         <h1 className='back'>🔙</h1>
                     </div>

@@ -1,12 +1,12 @@
 import { useState, useRef } from 'react';
 import './Register.css';
-import lock from './assets/checkout-lock-icon.png';
-import user from './assets/fluent_person-48-regular.png';
-import google from './assets/Google.png';
-import group from './assets/Group.png';
-import icon from './assets/icon.png';
-import view from './assets/view.png';
-import apple from './assets/devicon_apple.png';
+import lock from '/assets/checkout-lock-icon.png';
+import user from '/assets/fluent_person-48-regular.png';
+import google from '/assets/Google.png';
+import group from '/assets/Group.png';
+import icon from '/assets/icon.png';
+import view from '/assets/view.png';
+import apple from '/assets/devicon_apple.png';
 import { Link, useNavigate } from 'react-router-dom';
 
 function Register() {

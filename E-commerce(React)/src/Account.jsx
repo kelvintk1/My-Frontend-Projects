@@ -1,5 +1,5 @@
 import Header from "./Home/Header";
-import cameraIcon from './assets/camera-icon.png';
+import cameraIcon from '/assets/camera-icon.png';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Account.css'

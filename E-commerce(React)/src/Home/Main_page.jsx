@@ -4,15 +4,15 @@ import { Link, useNavigate } from 'react-router-dom';
  
 function Main_page() {
   const [leftImages, setLeftImages] = useState([
-    { id: 1, src: './src/choose/guy_13.jpg' },
-    { id: 2, src: './src/choose/guy_12.jpg' },
-    { id: 3, src: './src/choose/guy_10.jpg' }
+    { id: 1, src: '/choose/guy_13.jpg' },
+    { id: 2, src: '/choose/guy_12.jpg' },
+    { id: 3, src: '/choose/guy_10.jpg' }
   ]);  
    
   const [rightImages, setRightImages] = useState([
-    { id: 1, src: './src/choose/lady_5.jpg' },
-    { id: 2, src: './src/choose/lady_2.jpg' },
-    { id: 3, src: './src/choose/lady_7.jpg' }
+    { id: 1, src: '/choose/lady_5.jpg' },
+    { id: 2, src: '/choose/lady_2.jpg' },
+    { id: 3, src: '/choose/lady_7.jpg' }
   ]);
 
   // Track which image is being hovered to prevent flickering

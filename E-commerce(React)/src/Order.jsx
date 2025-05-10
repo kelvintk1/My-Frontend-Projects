@@ -100,7 +100,7 @@ function Order({ cartCount, orders, clearOrders, profileImage }) {
                             <span className='track-btn-container' onClick={handleTrackPackage}>
                                 <button className='track-btn'>
                                     <p className='track-name-btn'>Track Package</p>
-                                    <img src='./src/assets/bag_icon.png' className='bag_icon' alt="Bag" />
+                                    <img src='./assets/bag_icon.png' className='bag_icon' alt="Bag" />
                                 </button>
                             </span>
                         </div>

@@ -3,20 +3,20 @@ import { useState, useRef, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 // Import your assets
-import searchIcon from '../assets/search-icon.png';
-import orderIcon from '../assets/order.png';
-import cartIcon from '../assets/cart-icon.png';
-import checkoutIcon from '../assets/checkout.png';
-import aboutIcon from '../assets/about.png';
-import menuIcon from '../assets/menu.png';
-import dropdownMenuIcon from '../assets/dropdown-menu.png';
-import allIcon from '../assets/all-bag.png';
-import clothingIcon from '../assets/clothing.png';
-import accessoryIcon from '../assets/accessory_2.png';
-import footwearIcon from '../assets/footwear_1.png';
-import electronicsIcon from '../assets/electronics.png';
-import vehiclesIcon from '../assets/vehicles.png';
-import mallIcon from '../assets/mall.png';
+import searchIcon from '/assets/search-icon.png';
+import orderIcon from '/assets/order.png';
+import cartIcon from '/assets/cart-icon.png';
+import checkoutIcon from '/assets/checkout.png';
+import menuIcon from '/assets/menu.png';
+import dropdownMenuIcon from '/assets/dropdown-menu.png';
+import allIcon from '/assets/all-bag.png';
+import clothingIcon from '/assets/clothing.png';
+import accessoryIcon from '/assets/accessory_2.png';
+import footwearIcon from '/assets/footwear_1.png';
+import electronicsIcon from '/assets/electronics.png';
+import vehiclesIcon from '/assets/vehicles.png';
+import mallIcon from '/assets/mall.png';
+
 
 const categories = [
     { name: 'All', icon: allIcon, category: 'all' },
