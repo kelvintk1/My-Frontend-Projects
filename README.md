@@ -1,5 +1,5 @@
 # My-Frontend-Projects
 
 My E-commerce(React) project site:
-http://my-frontend-projects-fvr9-git-main-kelvintk1s-projects.vercel.app
-<!-- Only Laptop view for now. -->
+my-frontend-projects-ryz5-git-main-kelvintk1s-projects.vercel.app              
+Note: Please only view with a laptop for now🙏.
