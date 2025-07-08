@@ -1,0 +1,52 @@
+.header-container{
+    /* background-color: yellow; */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.image-container{
+    /* background-color: red; */
+}
+#add-image{
+    width: 45px;
+    padding-top: 20px;
+}
+
+/* Keep header and add-image static */
+.header-bar {
+    position: sticky;
+    top: 0;
+    background: #fff;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 24px;
+    border-bottom: 1px solid #eee;
+}
+
+/* Lane header styling */
+.lane-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Close button styling */
+.close-btn {
+    background: transparent;
+    border: none;
+    font-size: 1.5em;
+    color: #c00;
+    cursor: pointer;
+    margin-left: 8px;
+}
+
+// --- Styles ---
+body { background: #f9f9f9; font-family: Arial, sans-serif; }
+.header-container { display: flex; align-items: center; justify-content: space-between; padding: 16px; }
+.lane-container { display: flex; gap: 16px; padding: 16px; }
+.lanes { background: #fff; border-radius: 8px; box-shadow: 0 2px 8px #0001; padding: 16px; min-width: 300px; }
+.lane-title { font-size: 1.2rem; margin-bottom: 12px; }
+.post { border-bottom: 1px solid #eee; padding: 8px 0; }
+.post:last-child { border-bottom: none; }
+.image-container img { width: 32px; height: 32px; cursor: pointer; }
