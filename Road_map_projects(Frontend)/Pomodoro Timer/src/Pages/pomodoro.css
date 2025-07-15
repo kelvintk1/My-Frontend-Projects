@@ -1,0 +1,357 @@
+.pomodoro-page{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 580px;
+    width: 1080px;
+    background-color: black;
+}
+.pomodoro-page.collapsed{
+    width: 1223px;
+}
+.task-side{
+    width: 450px;
+    height: 550px;
+    margin-left: 5px;
+    border-radius: 20px;
+    background-color: rgba(39, 38, 38, 0.911);
+}
+.task-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.left-header,
+.right-header,
+.Tright-header{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.completed-container,
+.pending-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+.completed-icon,
+.pending-icon{
+    width: 17px;
+    height: 17px;
+    cursor: pointer;
+}
+.nav-container{
+    margin-right:8px;
+}
+.nav-icon{
+    width: 13px;
+    height: 13px;
+    cursor: pointer;
+}
+.taskfield-page{
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 475px;
+}
+.task-field{
+    height: 475px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.taskfield-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.taskInput-field {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #444;
+    border-radius: 10px;
+    padding: 10px;
+    width: 97%;
+    margin: 0 auto;
+    margin-top: 40px;
+    background: rgba(255,255,255,0.01);
+}
+.ctrl-taskInput {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+.ctrl-field {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: #aaa;
+    font-size: 14px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: background 0.2s;
+    width: auto;
+}
+.ctrl-field:hover {
+    background: #222;
+    color: #fff;
+    font-weight: bold;
+}
+.ctrl-field:last-child {
+    margin-left: auto;
+}
+.ctrl-icon{
+    width: 25px;
+    height: 25px;
+}
+
+.time-side{
+    width: 600px;
+    height: 550px;
+    border-radius: 20px;
+    background-color: rgba(39, 38, 38, 0.911);
+}
+.time-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    padding: 15px;
+}
+.dual-screen-icon{
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.time-field{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 495px;
+}
+.timefield-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 100px;
+}
+.tabs-container{
+    display: flex;
+    gap: 40px;
+}
+.tabs-container p{
+    font-size: large;
+    cursor: pointer;
+    border-radius: 5px;
+    height: 50%;
+    padding: 3px;
+}
+.tabs-container p:hover{
+    background-color: rgba(255, 255, 255, 0.164);
+}
+.tabs-container p:first-child:hover{
+    font-weight: 600;
+}
+.time-text{
+    font-size: 10cqmax;
+    font-weight: bolder;
+}
+.minutes-container{
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+}
+.minutes-container p{
+    font-size: medium;
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+}
+.minutes-container p:hover{
+    font-weight: bold;
+}
+.active-tab {
+    background: #444;
+    color: #fff;
+    border-radius: 8px;
+    padding: 4px 18px;
+    font-weight: 500;
+}
+.settings-modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.7);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.settings-modal {
+  background: #18181b;
+  color: #fff;
+  padding: 32px 32px 24px 32px;
+  border-radius: 12px;
+  min-width: 340px;
+  box-shadow: 0 4px 32px #000a;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+.settings-modal label {
+  font-size: 15px;
+  margin-bottom: 4px;
+  align-text: center;
+}
+.settings-modal input {
+  /* width: 300px; */
+  padding: 8px;
+  border-radius: 6px;
+  border: none;
+  margin-bottom: 8px;
+  font-size: 16px;
+  background: #23232a;
+  color: #fff;
+}
+.settings-update-btn {
+  background: #444;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 0;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 12px;
+}
+.task-list-item {
+    position: relative;
+    transition: background 0.2s;
+}
+.task-list-item:hover {
+    background: #23232a;
+}
+.task-list-item:hover .task-actions {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+.task-actions {
+    transition: opacity 0.2s;
+}
+.task-action-icon {
+    opacity: 0.7;
+    transition: opacity 0.2s, filter 0.2s;
+}
+.task-action-icon:hover {
+    opacity: 1;
+    filter: brightness(1.5);
+}
+
+/* Calendar Popup Container */
+.calendar-popup {
+  position: absolute;
+  top: 36px;
+  right: 0;
+  z-index: 1000;
+  background: #23232a;
+  border: 1px solid #444;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px #000a;
+  padding: 8px;
+}
+
+/* React Calendar Overrides */
+.react-calendar {
+  background: #23232a !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 12px !important;
+  font-family: inherit;
+  box-shadow: none;
+}
+
+.react-calendar__navigation {
+  background: transparent;
+  border-bottom: 1px solid #444;
+  margin-bottom: 8px;
+}
+
+.react-calendar__navigation button {
+  color: #fff;
+  background: none;
+  min-width: 44px;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.react-calendar__month-view__weekdays {
+  background: transparent;
+}
+
+.react-calendar__month-view__weekdays__weekday {
+  color: #aaa;
+  font-weight: 500;
+  font-size: 0.95em;
+  padding: 0.5em 0;
+}
+
+.react-calendar__tile {
+  background: none !important;
+  color: #fff !important;
+  border-radius: 8px !important;
+  transition: background 0.2s;
+}
+
+.react-calendar__tile--active,
+.react-calendar__tile--rangeStart,
+.react-calendar__tile--rangeEnd {
+  background: #444 !important;
+  color: #fff !important;
+}
+
+.react-calendar__tile--now {
+  background: #333 !important;
+  color: #fff !important;
+}
+
+.react-calendar__tile:enabled:hover,
+.react-calendar__tile:enabled:focus {
+  background: #393955 !important;
+  color: #fff !important;
+}
+
+.react-calendar__tile--hasActive {
+  background: #393955 !important;
+}
+
+.react-calendar__tile--range {
+  background: #393955 !important;
+  color: #fff !important;
+}
+
+.react-calendar__month-view__days__day--weekend {
+  color: #ff4d4d !important;
+}
+
+.react-calendar__tile--disabled {
+  color: #888 !important;
+  background: none !important;
+  opacity: 0.5;
+}
+
+.react-calendar__navigation__label {
+  font-size: 1.1em;
+  color: #fff;
+}
+
+.react-calendar__navigation__arrow {
+  color: #fff;
+}

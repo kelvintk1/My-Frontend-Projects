@@ -1,0 +1,242 @@
+.sidebar {
+  width: 200px;
+  height: 620px;
+  background: #19191c;
+  color: #888;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 8px;
+}
+.sidebar.collapsed {
+  width: 56px;
+  min-width: 56px;
+  align-items: center;
+  transition: width 0.2s;
+}
+.sidebar-back {
+  border: none;
+  color: #444;
+  font-size: 1.2em;
+  margin-bottom: 16px;
+  margin-right: 70%;
+  background: none;
+  cursor: pointer;
+}
+.sidebar-back:hover {
+  opacity: 0.7;
+  transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+}
+.sidebar-back:active {
+  transform: rotateY(180deg);
+  opacity: 1;
+  transition: transform 0.1s ease-out, opacity 0.1s ease-out;
+}
+.sidebar.collapsed .sidebar-back {
+  margin-right: 0;
+  justify-content: center;
+}
+
+.sidebar-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  flex: 1;
+}
+.timezone-bar,
+.pomodoro-bar,
+.dailyplanner-bar,
+.worldtime-bar,
+.timer-bar,
+.stopwatch-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  opacity: 0.5;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background 0.2s;
+}
+.timezone-bar:hover,
+.pomodoro-bar:hover,
+.dailyplanner-bar:hover,
+.worldtime-bar:hover,
+.timer-bar:hover,
+.stopwatch-bar:hover {
+  font-weight: 300;
+  opacity: 1;
+  background: #23232a;
+  transition: all 0.2s;
+}
+.timezone-bar:hover .sidebar-icon,
+.pomodoro-bar:hover .sidebar-icon,
+.dailyplanner-bar:hover .sidebar-icon,
+.worldtime-bar:hover .sidebar-icon,
+.timer-bar:hover .sidebar-icon,
+.stopwatch-bar:hover .sidebar-icon {
+  filter: brightness(0.8) drop-shadow(0 0 2px #ebebeb);
+  transition: all 0.2s;
+}
+.timezone-bar:active,
+.pomodoro-bar:active,
+.dailyplanner-bar:active,
+.worldtime-bar:active,
+.timer-bar:active,
+.stopwatch-bar:active {
+  color: #ffe066;
+  font-weight: 500;
+  opacity: 1;
+  background: #23232a;
+  cursor: pointer;
+}
+.timezone-bar:active .sidebar-icon,
+.pomodoro-bar:active .sidebar-icon,
+.dailyplanner-bar:active .sidebar-icon,
+.worldtime-bar:active .sidebar-icon,
+.timer-bar:active .sidebar-icon,
+.stopwatch-bar:active .sidebar-icon {
+  filter: brightness(2.5) drop-shadow(0 0 2px #ffe066);
+}
+.sidebar-icon {
+  width: 24px;
+  height: 24px;
+}
+.sidebar-account {
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #aaa;
+  opacity: 0.7;
+  margin-right: 25%;
+  position: relative;
+}
+.account-icon{
+    background-color: #888888c7;
+    color: white;
+    font-weight: 400;
+    width: 24px;
+    height: 24px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    
+}
+.sidebar-account:hover{
+  opacity: 1;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.sidebar-account:active{
+    color: #ffe066;
+}
+.sidebar-account:active .account-icon{
+  filter: brightness(1.5) drop-shadow(0 0 2px #ffe066);
+}
+.sidebar.collapsed .sidebar-account {
+  margin-right: 0;
+  justify-content: center;
+}
+.sidebar.collapsed .sidebar-label {
+  display: none;
+}
+.account-dropdown{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border: 1px solid;
+  width: 220px;
+  height: 200px;
+  background-color: black;
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  padding: 5px;
+}
+.profile{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+}
+.account-name{
+  margin-left: 10px;
+}
+.profile-name{
+  font-weight: 600;
+  color: #fff;
+}
+.profile-email{
+  margin-top: -15px;
+}
+.account-settings,
+.account-logout{
+  display: flex;
+}
+.account-settings:hover,
+.account-logout:hover{
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  height: 50px;
+  cursor: pointer;
+  align-items: center;
+}
+.settings-icon,
+.logout-icon{
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+.sidebar-tooltip {
+  display: none;
+  position: absolute;
+  left: 60px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #aaa;
+  color: #23232a;
+  padding: 4px 14px;
+  border-radius: 8px;
+  font-size: 15px;
+  white-space: nowrap;
+  z-index: 1000;
+  font-weight: 500;
+  opacity: 0.95;
+  pointer-events: none;
+  box-shadow: 0 2px 8px #0003;
+}
+
+.sidebar.collapsed .sidebar-list li {
+  position: relative;
+}
+
+.sidebar.collapsed .sidebar-list li:hover .sidebar-tooltip {
+  display: block;
+}
+
+/* Show tooltip on hover when sidebar is collapsed */
+.sidebar.collapsed .sidebar-account:hover .sidebar-tooltip {
+  display: block;
+}
+
+.sidebar.collapsed .sidebar-account .sidebar-tooltip {
+  display: none;
+  position: absolute;
+  left: 45px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #aaa;
+  color: #23232a;
+  padding: 4px 14px;
+  border-radius: 8px;
+  font-size: 15px;
+  white-space: nowrap;
+  z-index: 1000;
+  font-weight: 500;
+  opacity: 0.95;
+  pointer-events: none;
+  box-shadow: 0 2px 8px #0003;
+}

@@ -1,0 +1,9 @@
+.app-root{
+  display: flex;
+  flex-direction: row;
+}
+
+.main-content {
+  flex: 1;
+  padding-top: 50px; /* height of the fixed header */
+}
