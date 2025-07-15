@@ -5,14 +5,34 @@
       "src": "package.json",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "dist"
+        "distDir": "dist",
+        "cleanDistDir": true
       }
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/dist/$1"
+      "dest": "/index.html",
+      "status": 200
     }
   ]
 }
+
+// {
+//   "version": 2,
+//   "name": "imageurl",
+//   "alias": "imageurl.vercel.app",
+//   "builds": [
+//     {
+//       "src": "package.json",
+//       "use": "@vercel/static-build"
+//     }
+//   ],
+//   "routes": [
+//     {
+//       "src": "/(.*)",
+//       "dest": "/index.html"
+//     }
+//   ]
+// }
