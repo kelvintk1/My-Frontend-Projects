@@ -1,0 +1,23 @@
+{
+  "projects": [
+    {
+      "src": "url-image/",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
+    }
+  ],
+  "builds": [
+    {
+      "src": "url-image/package.json",
+      "use": "@vercel/static-build"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/url-image/$1"
+    }
+  ]
+}
