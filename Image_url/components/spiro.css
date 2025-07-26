@@ -1,7 +1,5 @@
-/* @import 'tailwindcss'; */
-
 .spiro {
-  display: inline;
+  display: inline-block;
   position: relative;
   width: 88px;
   height: 88px;

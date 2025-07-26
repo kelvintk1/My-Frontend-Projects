@@ -1,12 +1,13 @@
 .sidebar {
   width: 200px;
-  height: 620px;
+  height: 590px;
   background: #19191c;
   color: #888;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 8px;
+  position: relative;
 }
 .sidebar.collapsed {
   width: 56px;

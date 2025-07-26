@@ -3,9 +3,10 @@
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    height: 580px;
+    height: 557px;
     width: 1080px;
     background-color: black;
+    position: fixed;
 }
 .pomodoro-page.collapsed{
     width: 1223px;
