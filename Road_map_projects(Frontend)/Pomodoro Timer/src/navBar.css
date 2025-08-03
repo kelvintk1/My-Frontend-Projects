@@ -45,6 +45,16 @@
   width: 100%;
   flex: 1;
 }
+.pomodoro-bar{
+  color: #fcd538;
+  font-weight: bold;
+  opacity: 1;
+  background: #23232a;
+  cursor: pointer;
+}
+.pomodoro-bar .sidebar-icon{
+  filter: brightness(2.5) drop-shadow(0 0 2px #ffe066);
+}
 .timezone-bar,
 .pomodoro-bar,
 .dailyplanner-bar,
@@ -86,8 +96,8 @@
 .worldtime-bar:active,
 .timer-bar:active,
 .stopwatch-bar:active {
-  color: #ffe066;
-  font-weight: 500;
+  color: #fcd538;
+  font-weight: bold;
   opacity: 1;
   background: #23232a;
   cursor: pointer;

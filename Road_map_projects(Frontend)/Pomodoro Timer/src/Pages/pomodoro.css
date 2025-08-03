@@ -82,6 +82,12 @@
     margin-top: 40px;
     background: rgba(255,255,255,0.01);
 }
+.task-actions {
+  display: none;
+}
+.task-list-item:hover .task-actions {
+  display: flex;
+}
 .ctrl-taskInput {
     display: flex;
     align-items: center;
@@ -124,6 +130,18 @@
     align-items: center;
     padding: 15px;
 }
+
+.time-side.maximized {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  background: #181818; /* or your preferred background */
+  display: flex;
+  flex-direction: column;
+}
+
 .dual-screen-icon{
     width: 20px;
     height: 20px;

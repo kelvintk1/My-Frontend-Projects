@@ -3,7 +3,9 @@ import React, { useState, useRef, useEffect } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 
-function Pomodoro({collapsed}) {
+
+
+function Pomodoro({collapsed, isMaximized, setIsMaximized}) {
     // Timer states
     const [timeLeft, setTimeLeft] = useState(25 * 60); // in seconds
     const [isRunning, setIsRunning] = useState(false);
@@ -23,11 +25,13 @@ function Pomodoro({collapsed}) {
     const [shortDuration, setShortDuration] = useState(5);
     const [longDuration, setLongDuration] = useState(15);
 
-    const [tasks, setTasks] = useState([]);
+    // Tasks are now stored per date: { 'YYYY-MM-DD': [task, ...] }
+    const [tasks, setTasks] = useState({});
     const [taskInput, setTaskInput] = useState('');
     const [editIndex, setEditIndex] = useState(null);
     const [editValue, setEditValue] = useState('');
     const [currentTaskIndex, setCurrentTaskIndex] = useState(null);
+    const [viewMode, setViewMode] = useState('pending'); // pending or default
 
     const intervalRef = useRef(null);
 
@@ -44,6 +48,36 @@ function Pomodoro({collapsed}) {
         const month = date.toLocaleString('default', { month: 'short' });
         return `${day < 10 ? '0' : ''}${day} ${month}`;
     };
+
+    // Helper to get date string (YYYY-MM-DD)
+    const getDateKey = (date) => date.toISOString().split('T')[0];
+
+    const handleAddTask = () => {
+        if (taskInput.trim()){
+            const dateKey = getDateKey(selectedDate);
+            setTasks(prev => ({
+                ...prev,
+                [dateKey]: [...(prev[dateKey] || []), {text: taskInput, completed: false }]
+            }));
+            setTaskInput('');
+            setShowTaskInput(false);
+        }
+    };
+
+    const handleCheckboxChange = (taskToToggle) => {
+        const dateKey = getDateKey(selectedDate);
+        setTasks(prevTasks => ({
+            ...prevTasks,
+            [dateKey]: prevTasks[dateKey].map(task =>
+                task === taskToToggle ? { ...task, completed: !task.completed} : task
+            )
+        }));
+    };
+
+    // Get tasks for current date
+    const dateKey = getDateKey(selectedDate);
+    const tasksForDate = tasks[dateKey] || [];
+    const filteredTasks = tasksForDate.filter(task => task.completed === (viewMode === 'completed'));
 
     // Start timer
     const handleStart = () => {
@@ -170,7 +204,11 @@ function Pomodoro({collapsed}) {
     // Save task handler
     const handleSaveTask = () => {
         if (taskInput.trim() !== '') {
-            setTasks(prev => [...prev, { text: taskInput.trim(), completed: false }]);
+            const dateKey = getDateKey(selectedDate);
+            setTasks(prev => ({
+                ...prev,
+                [dateKey]: [...(prev[dateKey] || []), { text: taskInput.trim(), completed: false }]
+            }));
             setTaskInput('');
             setShowTaskInput(false);
         }
@@ -179,11 +217,13 @@ function Pomodoro({collapsed}) {
     // Save edited task
     const handleEditSave = () => {
         if (editValue.trim() !== '') {
-            setTasks(tasks =>
-                tasks.map((task, idx) =>
+            const dateKey = getDateKey(selectedDate);
+            setTasks(tasks => ({
+                ...tasks,
+                [dateKey]: tasks[dateKey].map((task, idx) =>
                     idx === editIndex ? { ...task, text: editValue.trim() } : task
                 )
-            );
+            }));
             setEditIndex(null);
             setEditValue('');
         }
@@ -207,20 +247,40 @@ function Pomodoro({collapsed}) {
 
     return (
         <div className={`pomodoro-page ${collapsed ? 'collapsed' : ''}`}>
-            <div className='task-side'>
+            <div className='task-side' style={isMaximized ? { display: 'none' } : {}}>
                 <div className='task-header'>
                     <div className='left-header'>
-                        <span className='pending-container' style={{cursor:'pointer'}}>
+                        <span
+                            className='pending-container'
+                            style={{
+                                cursor: 'pointer',
+                                backgroundColor: viewMode === 'pending' ? 'rgba(255, 255, 255, 0.164)' : 'transparent',
+                                height: '30px',
+                                borderRadius: '12px',
+                                padding: '0 8px'
+                            }}
+                            onClick={() => setViewMode('pending')}
+                        >
                             <img src='/pending.png' alt='Pending' className='pending-icon'/>
                             <p className="pending-text">Pending</p>
                         </span>
-                        <span className='completed-container' style={{cursor:'pointer'}}>
+                        <span
+                            className='completed-container'
+                            style={{
+                                cursor: 'pointer',
+                                backgroundColor: viewMode === 'completed' ? 'rgba(255, 255, 255, 0.164)' : 'transparent',
+                                height: '30px',
+                                borderRadius: '12px',
+                                padding: '0 8px'
+                            }}
+                            onClick={() => setViewMode('completed')}
+                        >
                             <img src='/completed.png' alt='Completed' className='completed-icon'/>
                             <p className="completed-text">Completed</p>
                         </span>
                     </div>
                     <div className='right-header'>
-                        <img src='/refresh.png' alt='Refresh' className='completed-icon'/>
+                        {/* <img src='/refresh.png' alt='Refresh' className='completed-icon'/> */}
                         <span
                             className='completed-container calendar-trigger'
                             style={{
@@ -285,7 +345,7 @@ function Pomodoro({collapsed}) {
                 </div>
                 <div className='taskfield-page'>
                     {/* No tasks and not adding */}
-                    {tasks.length === 0 && !showTaskInput && (
+                    {tasksForDate.length === 0 && !showTaskInput && (
                         <div className='taskfield-container' style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%'}}>
                             <img src='/completed.png' alt='Task' className='task-icon' style={{opacity: 0.5, cursor: 'pointer', width: '70px', height: '70px'}}/>
                             <span style={{opacity: 0.5}}>No tasks for this day</span>
@@ -299,10 +359,10 @@ function Pomodoro({collapsed}) {
                     )}
 
                     {/* Tasks exist and not adding */}
-                    {tasks.length > 0 && !showTaskInput && (
+                    {tasksForDate.length > 0 && !showTaskInput && (
                         <div className='taskfield-container'>
                             <ul style={{listStyle: 'none', padding: 0, margin: 0, width: '100%'}}>
-                                {tasks.map((task, idx) => (
+                                {filteredTasks.map((task, idx) => (
                                     <li
                                         key={idx}
                                         className="task-list-item"
@@ -316,7 +376,7 @@ function Pomodoro({collapsed}) {
                                             transition: 'background 0.2s'
                                         }}
                                     >
-                                        <input type="checkbox" checked={task.completed} readOnly />
+                                        <input type="checkbox" checked={task.completed} onChange={() => handleCheckboxChange(task)}/>
                                         {editIndex === idx ? (
                                             <div style={{flex: 1, display: 'flex', flexDirection: 'column'}}>
                                                 <input
@@ -350,10 +410,10 @@ function Pomodoro({collapsed}) {
                                                 </div>
                                             </div>
                                         ) : (
-                                            <span style={{color: '#fff', flex: 1}}>{task.text}</span>
+                                            <span style={{color: '#fff', flex: 1, textDecoration: task.completed ? 'line-through' : 'none'}}>{task.text}</span>
                                         )}
                                         {editIndex !== idx && (
-                                            <span className="task-actions" style={{display: 'flex', alignItems: 'center', gap: '10px', opacity: 0, pointerEvents: 'none'}}>
+                                            <span className="task-actions" style={{alignItems: 'center', gap: '10px'}}>
                                                 <img
                                                     src={isRunning && currentTaskIndex === idx ? "/pause.png" : "/play.png"}
                                                     alt={isRunning && currentTaskIndex === idx ? "Pause" : "Start"}
@@ -387,7 +447,11 @@ function Pomodoro({collapsed}) {
                                                     style={{width: '18px', height: '18px', cursor: 'pointer'}}
                                                     onClick={e => {
                                                         e.stopPropagation();
-                                                        setTasks(tasks => tasks.filter((_, i) => i !== idx));
+                                                        const dateKey = getDateKey(selectedDate);
+                                                        setTasks(tasks => ({
+                                                            ...tasks,
+                                                            [dateKey]: tasks[dateKey].filter((_, i) => i !== idx)
+                                                        }));
                                                     }}
                                                 />
                                             </span>
@@ -478,12 +542,28 @@ function Pomodoro({collapsed}) {
                     )}
                 </div>
             </div>
-            <div className="time-side">
+            <div className={`time-side${isMaximized ? ' maximized' : ''}`}>
                 <div className='time-header'>
                     <div className='Tright-header'>
                         <img src='/dualScreen.png' alt='Dual Screen' className='dual-screen-icon'/>
                         <img src='/adjust.png' alt='Adjust' className='dual-screen-icon' onClick={() => setShowSettings(true)} style={{cursor: 'pointer'}}/>
-                        <img src='/maximize.png' alt='Maximize' className='dual-screen-icon'/>
+                        {isMaximized ? (
+                            <img
+                                src='/minimize.png'
+                                alt='Minimize'
+                                className='dual-screen-icon'
+                                style={{cursor: 'pointer'}}
+                                onClick={() => setIsMaximized(false)}
+                            />
+                        ) : (
+                            <img
+                                src='/maximize.png'
+                                alt='Maximize'
+                                className='dual-screen-icon'
+                                style={{cursor: 'pointer'}}
+                                onClick={() => setIsMaximized(true)}
+                            />
+                        )}
                     </div>
                 </div>
                 <div className="time-field">
